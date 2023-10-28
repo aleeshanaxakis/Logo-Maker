@@ -1,7 +1,9 @@
 //Import packages
 import inquirer from 'inquirer';
 import SVG from 'svg.js';
-import { Circle, Triangle, Square } from './shapes.js';
+import Circle from './circle.js';
+import Square from './square.js';
+import Triangle from './triangle.js';
 
 async function promptUser() {
     const userInput = await inquirer.prompt([

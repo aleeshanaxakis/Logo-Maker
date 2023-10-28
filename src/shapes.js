@@ -5,22 +5,11 @@ class Shape {
         this.shapeType = shapeType;
         this.shapeColor = shapeColor;
     }
+
+    render() {
+        // Implement the rendering logic for each shape in the subclasses
+        // This method will be overridden by the subclasses (Circle, Square, Triangle)
+    }
 }
 
-class Circle extends Shape {
-    // Circle-specific properties/methods
-}
-
-class Triangle extends Shape {
-    // Triangle-specific properties/methods
-}
-
-class Square extends Shape {
-    // Square-specific properties/methods
-}
-
-module.exports = {
-    Circle,
-    Triangle,
-    Square
-};
+module.exports = Shape;
