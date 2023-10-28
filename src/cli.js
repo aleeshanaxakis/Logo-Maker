@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const { Circle, Triangle, Square } = require('./shapes');
+const SVG = require('svg.js');
 
 async function promptUser() {
     const userInput = await inquirer.prompt([
@@ -48,7 +49,25 @@ async function promptUser() {
             break;
     }
 
-    console.log('Created shape:', shape);
+    // Create SVG file and draw shape
+    const draw = SVG().size(300, 200);
+    let svgShape;
+    if (shape.shapeType === 'circle') {
+        svgShape = draw.circle(100).attr({
+            fill: shape.shapeColor,
+            cx: 150,
+            cy: 100
+        });
+    } else if (shape.shapeType === 'triangle') {
+        // Draw triangle logic
+    } else if (shape.shapeType === 'square') {
+        // Draw square logic
+    }
+
+    // Save SVG to a file named 'logo.svg'
+    draw.svgToFile('logo.svg');
+
+    console.log('Generated logo.svg');
 }
 
 promptUser();
