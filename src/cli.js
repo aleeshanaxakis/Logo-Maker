@@ -1,6 +1,7 @@
-const inquirer = require('inquirer');
-const { Circle, Triangle, Square } = require('./shapes');
-const SVG = require('svg.js');
+//Import packages
+import inquirer from 'inquirer';
+import SVG from 'svg.js';
+import { Circle, Triangle, Square } from './shapes.js';
 
 async function promptUser() {
     const userInput = await inquirer.prompt([
