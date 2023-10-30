@@ -1,4 +1,4 @@
-const { Circle } = require('../src/shapes');
+const Circle = require('../src/circle.js');
 
 test('Circle object is created correctly', () => {
     const circle = new Circle('abc', 'red', 'circle', 'blue');

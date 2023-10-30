@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Circle = require("./src/circle.js");
-const Square = require("./src/sqaure.js");
+const Square = require("./src/square.js");
 const Triangle = require("./src/triangle.js");
 
 async function promptUser() {
