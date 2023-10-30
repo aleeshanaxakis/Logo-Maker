@@ -1,6 +1,6 @@
 // Import necessary packages and shape classes
 const inquirer = require("inquirer");
-const SVG = require("svg.js");
+const fs = require("fs");
 const Circle = require("./src/circle.js");
 const Square = require("./src/sqaure.js");
 const Triangle = require("./src/triangle.js");
@@ -52,36 +52,38 @@ async function promptUser() {
             break;
     }
 
-    // Create an SVG canvas
-    const draw = SVG().size(300, 200);
+    fs.writeFileSync("./examples/logo.svg", shape.render());
 
-    // Draw the selected shape on the canvas based on user input
-    let svgShape;
-    if (shape.shapeType === 'circle') {
-        // Draw circle
-        svgShape = draw.circle(100).attr({
-            fill: shape.shapeColor,
-            cx: 150,
-            cy: 100
-        });
-    } else if (shape.shapeType === 'triangle') {
-        // Draw triangle 
-        const halfHeight = Math.sqrt(3) / 2 * 100;
-        svgShape = draw.polygon(`${150},${100 - halfHeight} ${50}, ${100 + halfHeight} ${250}, ${100 + halfHeight}`)
-            .attr({
-                fill: shape.shapeColor
-            });
-    } else if (shape.shapeType === 'square') {
-        // Draw square 
-        svgShape = draw.rect(100, 100).attr({
-            fill: shape.shapeColor,
-            x: 100,
-            y: 50
-        });
-    }
+    // // Create an SVG file
+    // // const draw = SVG().size(300, 200);
 
-    // Save the SVG canvas to a file named 'logo.svg'
-    draw.svgToFile('logo.svg');
+    // // Draw the selected shape on the canvas based on user input
+    // let svgShape;
+    // if (shape.shapeType === 'circle') {
+    //     // Draw circle
+    //     svgShape = draw.circle(100).attr({
+    //         fill: shape.shapeColor,
+    //         cx: 150,
+    //         cy: 100
+    //     });
+    // } else if (shape.shapeType === 'triangle') {
+    //     // Draw triangle 
+    //     const halfHeight = Math.sqrt(3) / 2 * 100;
+    //     svgShape = draw.polygon(`${150},${100 - halfHeight} ${50}, ${100 + halfHeight} ${250}, ${100 + halfHeight}`)
+    //         .attr({
+    //             fill: shape.shapeColor
+    //         });
+    // } else if (shape.shapeType === 'square') {
+    //     // Draw square 
+    //     svgShape = draw.rect(100, 100).attr({
+    //         fill: shape.shapeColor,
+    //         x: 100,
+    //         y: 50
+    //     });
+    // }
+
+    // // Save the SVG canvas to a file named 'logo.svg'
+    // draw.svgToFile('logo.svg');
 
     // Print a message indicating that 'logo.svg' has been generated
     console.log('Generated logo.svg');
