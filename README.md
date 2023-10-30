@@ -3,7 +3,7 @@
 ## Description
 This SVG logo takes in user input and generates a logo saved as an SVG file.
 
-A walkthrough video is available at this link:
+A walkthrough video is available at this link: https://drive.google.com/file/d/17G78Hq1Kby7b2rPV6bzh4Tpt3W3wzduQ/view?usp=sharing
 
 ## User Story
 AS a freelance web developer
