@@ -8,7 +8,7 @@ class Square extends Shape {
     render() {
         return `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">
 
-        <rect width="300" height="200" x="100" y="50" width="100" height="100" fill="${this.shapeColor}" />
+        <rect width="300" height="200" x="100" y="50" fill="${this.shapeColor}" />
       
         <text x="150" y="115" font-size="30" text-anchor="middle" fill="${this.textColor}">${this.text}</text>
       
