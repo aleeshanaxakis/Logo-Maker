@@ -1,18 +1,20 @@
-//Import packages
+// Import necessary packages and shape classes
 import inquirer from 'inquirer';
 import SVG from 'svg.js';
-import Circle from './circle.js';
-import Square from './square.js';
-import Triangle from './triangle.js';
+import Circle from './src/circle.js';
+import Square from './src/sqaure.js';
+import Triangle from './src/triangle.js';
 
+// Function to prompt user for input
 async function promptUser() {
+    // Prompt user for text, text color, shape type, and shape color
     const userInput = await inquirer.prompt([
         {
             type: 'input',
             name: 'text',
             message: 'Enter up to three characters:',
             validate: function(value) {
-                // Validate text input (up to three characters)
+                // TODO: Validate text input (up to three characters)
             }
         },
         {
@@ -20,7 +22,7 @@ async function promptUser() {
             name: 'textColor',
             message: 'Enter text color (keyword or hex):',
             validate: function(value) {
-                // Validate color input (keyword or hex)
+                // TODO: Validate color input (keyword or hex)
             }
         },
         {
@@ -34,11 +36,12 @@ async function promptUser() {
             name: 'shapeColor',
             message: 'Enter shape color (keyword or hex):',
             validate: function(value) {
-                // Validate color input (keyword or hex)
+                // TODO: Validate color input (keyword or hex)
             }
         }
     ]);
 
+    // Create the corresponding shape object based on user input
     let shape;
     switch (userInput.shapeType) {
         case 'circle':
@@ -52,8 +55,10 @@ async function promptUser() {
             break;
     }
 
-    // Create SVG file and draw shape
+    // Create an SVG canvas
     const draw = SVG().size(300, 200);
+
+    // Draw the selected shape on the canvas based on user input
     let svgShape;
     if (shape.shapeType === 'circle') {
         // Draw circle
@@ -78,10 +83,12 @@ async function promptUser() {
         });
     }
 
-    // Save SVG to a file named 'logo.svg'
+    // Save the SVG canvas to a file named 'logo.svg'
     draw.svgToFile('logo.svg');
 
+    // Print a message indicating that 'logo.svg' has been generated
     console.log('Generated logo.svg');
 }
 
+// Call the function to prompt the user for input
 promptUser();

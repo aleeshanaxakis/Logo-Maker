@@ -1,4 +1,4 @@
-import Shape from './shape.js';
+import Shape from './shapes.js';
 
 class Triangle extends Shape {
     constructor(text, textColor, shapeColor) {
