@@ -1,4 +1,4 @@
-import { Circle } from './shapes.js';
+const Shape = require ("./shapes.js");
 
 class Circle extends Shape {
     constructor(text, textColor, shapeColor) {

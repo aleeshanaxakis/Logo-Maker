@@ -1,4 +1,4 @@
-import Shape from './shapes.js';
+const Shape = require ("./shapes.js");
 
 class Triangle extends Shape {
     constructor(text, textColor, shapeColor) {

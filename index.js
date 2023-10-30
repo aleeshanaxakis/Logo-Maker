@@ -1,11 +1,10 @@
 // Import necessary packages and shape classes
-import inquirer from 'inquirer';
-import SVG from 'svg.js';
-import Circle from './src/circle.js';
-import Square from './src/sqaure.js';
-import Triangle from './src/triangle.js';
+const inquirer = require("inquirer");
+const SVG = require("svg.js");
+const Circle = require("./src/circle.js");
+const Square = require("./src/sqaure.js");
+const Triangle = require("./src/triangle.js");
 
-// Function to prompt user for input
 async function promptUser() {
     // Prompt user for text, text color, shape type, and shape color
     const userInput = await inquirer.prompt([
@@ -14,16 +13,17 @@ async function promptUser() {
             name: 'text',
             message: 'Enter up to three characters:',
             validate: function(value) {
-                // TODO: Validate text input (up to three characters)
+                if (value.length === 3) {
+                    return true
+                } else {
+                    return false
+                }
             }
         },
         {
             type: 'input',
             name: 'textColor',
             message: 'Enter text color (keyword or hex):',
-            validate: function(value) {
-                // TODO: Validate color input (keyword or hex)
-            }
         },
         {
             type: 'list',
@@ -35,9 +35,6 @@ async function promptUser() {
             type: 'input',
             name: 'shapeColor',
             message: 'Enter shape color (keyword or hex):',
-            validate: function(value) {
-                // TODO: Validate color input (keyword or hex)
-            }
         }
     ]);
 
